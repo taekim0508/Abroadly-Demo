@@ -1,0 +1,185 @@
+/* Contributors:
+   Tae Kim - Dynamic Background Animations (1 hr)
+*/
+
+/* Dynamic Background Animations for Abroadly Home Page */
+
+/* Animated gradient background */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes drift {
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+
+    25% {
+        transform: translateX(10px) translateY(-10px);
+    }
+
+    50% {
+        transform: translateX(-5px) translateY(-20px);
+    }
+
+    75% {
+        transform: translateX(-10px) translateY(-5px);
+    }
+
+    100% {
+        transform: translateX(0px) translateY(0px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(1.1);
+    }
+}
+
+/* Impressionist painting background */
+.dynamic-gradient {
+    background-image: url('/hero-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* Dark overlay for text readability */
+.dynamic-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+
+/* Floating elements */
+.floating-element {
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.floating-element:nth-child(3) {
+    animation-delay: 2s;
+}
+
+.floating-element:nth-child(4) {
+    animation-delay: 3s;
+}
+
+/* Drifting particles */
+.drifting-particle {
+    animation: drift 8s ease-in-out infinite;
+}
+
+.drifting-particle:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.drifting-particle:nth-child(3) {
+    animation-delay: 4s;
+}
+
+/* Shimmer effect */
+.shimmer-overlay {
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Rotating elements */
+.rotating-element {
+    animation: rotate 20s linear infinite;
+}
+
+/* Pulsing circles */
+.pulsing-circle {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.pulsing-circle:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.pulsing-circle:nth-child(3) {
+    animation-delay: 2s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .floating-element {
+        animation-duration: 4s;
+    }
+
+    .drifting-particle {
+        animation-duration: 6s;
+    }
+
+    .dynamic-gradient {
+        animation-duration: 12s;
+    }
+}
+
+/* Smooth transitions for all elements */
+* {
+    transition: all 0.3s ease;
+}
